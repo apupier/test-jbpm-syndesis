@@ -1,0 +1,103 @@
+{
+  "schemaVersion" : "v1",
+  "name" : "Start Business Process (jBPM)",
+  "extensionId" : "ignite.extension.example.connector.jbpm.start.process",
+  "version" : "1.0.0",
+  "actions" : [ {
+    "id" : "io.syndesis:jbpm.start.process",
+    "name" : "Start Business Process (jBPM)",
+    "description" : "Start a Business Process running on jBPM",
+    "descriptor" : {
+      "componentScheme" : "jbpm",
+      "inputDataShape" : {
+        "kind" : "none"
+      },
+      "outputDataShape" : {
+        "kind" : "none"
+      },
+      "propertyDefinitionSteps" : [ {
+        "description" : "Id of process to start",
+        "name" : "Id of process to start",
+        "properties" : {
+          "event" : {
+            "kind" : "parameter",
+            "displayName" : "Id of process to start",
+            "type" : "string",
+            "javaType" : "String",
+            "description" : "The process id to start"
+          }
+        }
+      } ],
+      "configuredProperties" : {
+      }
+    },
+    "actionType" : "connector",
+    "pattern" : "To"
+  }, {
+    "id" : "io.syndesis:jbpm.send.signal",
+    "name" : "Send a signal to a Business Process (jBPM)",
+    "description" : "Send a signal to a Business Process (jBPM)",
+    "descriptor" : {
+      "componentScheme" : "jbpm",
+      "inputDataShape" : {
+        "kind" : "none"
+      },
+      "outputDataShape" : {
+        "kind" : "none"
+      },
+      "propertyDefinitionSteps" : [ {
+        "description" : "Signal Event id",
+        "name" : "Signal Event id",
+        "properties" : {
+          "event" : {
+            "kind" : "parameter",
+            "displayName" : "Signal Event Id",
+            "type" : "string",
+            "javaType" : "String",
+            "description" : "The Signal event id to send"
+          }
+        }
+      } ],
+      "configuredProperties" : {
+        "operation" : "signalEvent"
+      }
+    },
+    "actionType" : "connector",
+    "pattern" : "To"
+  } ],
+  "properties" : {
+    "hostname" : {
+      "kind" : "property",
+      "displayName" : "Host name",
+      "group" : "security",
+      "label" : "security",
+      "required" : true,
+      "type" : "string",
+      "javaType" : "java.lang.String",
+      "secret" : false,
+      "description" : "Host name"
+    },
+    "username" : {
+      "kind" : "property",
+      "displayName" : "user name",
+      "group" : "security",
+      "label" : "security",
+      "required" : true,
+      "type" : "string",
+      "javaType" : "java.lang.String",
+      "secret" : false,
+      "description" : "user name"
+    },
+    "password" : {
+      "kind" : "property",
+      "displayName" : "password",
+      "group" : "security",
+      "label" : "security",
+      "required" : true,
+      "type" : "string",
+      "javaType" : "java.lang.String",
+      "secret" : true,
+      "description" : "password"
+    }
+  }
+}
